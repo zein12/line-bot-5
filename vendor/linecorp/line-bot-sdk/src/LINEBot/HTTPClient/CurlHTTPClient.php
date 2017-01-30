@@ -93,8 +93,8 @@ class CurlHTTPClient implements HTTPClient
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_BINARYTRANSFER => true,
             CURLOPT_HEADER => true,
-            CURLOPT_PROXY => 'velodrome.usefixie.com:80',
-            CURLOPT_PROXYUSERPWD => 'fixie:aoZ1UPc0f9WID8E',
+            //CURLOPT_PROXY => 'velodrome.usefixie.com:80',
+            //CURLOPT_PROXYUSERPWD => 'fixie:aoZ1UPc0f9WID8E',
         ];
 
         if ($method === 'POST' && !empty($reqBody)) {
