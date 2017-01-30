@@ -157,7 +157,13 @@ class TextMessageHandler implements EventHandler
                 $this->bot->replyMessage($replyToken, $imagemapMessageBuilder);
                 break;
             default:
-                $this->echoBack($replyToken, $text);
+                $userId = $this->textMessage->getUserId();
+                if($text == 'id'){
+                    $this->echoBack($replyToken, $userId);
+                }else{
+                    $this->echoBack($replyToken, $text);
+                }
+
                 break;
         }
     }
