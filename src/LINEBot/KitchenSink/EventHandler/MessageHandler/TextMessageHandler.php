@@ -195,7 +195,8 @@ class TextMessageHandler implements EventHandler
         $this->bot->replyText(
             $replyToken,
             'Display name: ' . $profile['displayName'],
-            'Status message: ' . $profile['statusMessage']
+            'Status message: ' . $profile['statusMessage'],
+            'Display Image: ' . $profile['pictureUrl']
         );
     }
 }
