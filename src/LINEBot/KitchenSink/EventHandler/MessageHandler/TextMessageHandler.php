@@ -132,6 +132,12 @@ class TextMessageHandler implements EventHandler
             case 'pik':
                 $this->echoBack($replyToken, "กลัวเมีย");
                 break;
+            case 'ทำอะไร':
+                $this->echoBack($replyToken, "ทำงานดิไม่ได้กลัวเมียเหมือนปิ๊กที่ไหน");
+                break;
+            case 'กินอะไรยัง':
+                $this->echoBack($replyToken, "ยังไม่เที่ยงเลยจะกินอะไรเร็วแท้");
+                break;
             case 'imagemap':
                 $richMessageUrl = UrlBuilder::buildUrl($this->req, ['static', 'rich']);
                 $imagemapMessageBuilder = new ImagemapMessageBuilder(
