@@ -131,7 +131,7 @@ class TextMessageHandler implements EventHandler
                 break;
             case 'pik':
                 $userId = $this->textMessage->getUserId();
-                $this->sendProfile($replyToken, $userId);
+                $this->sendProfile($replyToken, 'olo');
                 break;
             case 'imagemap':
                 $richMessageUrl = UrlBuilder::buildUrl($this->req, ['static', 'rich']);
