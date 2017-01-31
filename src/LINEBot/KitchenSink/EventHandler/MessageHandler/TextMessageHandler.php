@@ -160,7 +160,7 @@ class TextMessageHandler implements EventHandler
                 $userId = $this->textMessage->getUserId();
                 if($text == 'id'){
                     $this->echoBack($replyToken, $userId);
-                }elseif($text == 'ปิ๊ก'){
+                }else if($text == 'ปิ๊ก'){
                     $this->echoBack($replyToken, 'กลัวเมีย');
                 }else{
                     $this->echoBack($replyToken, $text);
