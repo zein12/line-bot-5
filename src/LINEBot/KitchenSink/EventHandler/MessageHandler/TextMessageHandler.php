@@ -67,7 +67,7 @@ class TextMessageHandler implements EventHandler
         $text = $this->textMessage->getText();
         $replyToken = $this->textMessage->getReplyToken();
         $this->logger->info("Got text message from $replyToken: $text");
-
+        $piktext = "กลัวเมีย";
         switch ($text) {
             case 'profile':
                 $userId = $this->textMessage->getUserId();
@@ -130,7 +130,7 @@ class TextMessageHandler implements EventHandler
                 $this->bot->replyMessage($replyToken, $templateMessage);
                 break;
             case 'pik':
-                $this->sendProfile($replyToken, "กลัวเมีย");
+                $this->sendProfile($replyToken, $piktext);
                 break;
             case 'imagemap':
                 $richMessageUrl = UrlBuilder::buildUrl($this->req, ['static', 'rich']);
