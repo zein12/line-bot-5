@@ -129,6 +129,9 @@ class TextMessageHandler implements EventHandler
                 $templateMessage = new TemplateMessageBuilder('Button alt text', $carouselTemplateBuilder);
                 $this->bot->replyMessage($replyToken, $templateMessage);
                 break;
+            case 'pik':
+                $this->sendProfile($replyToken, 'กลัวเมีย');
+                break;
             case 'imagemap':
                 $richMessageUrl = UrlBuilder::buildUrl($this->req, ['static', 'rich']);
                 $imagemapMessageBuilder = new ImagemapMessageBuilder(
@@ -158,7 +161,7 @@ class TextMessageHandler implements EventHandler
                 break;
             default:
                 $userId = $this->textMessage->getUserId();
-                if($text == 'id') {
+                if($text == 'id'){
                     $this->echoBack($replyToken, $userId);
                 }else{
                     $this->echoBack($replyToken, $text);
