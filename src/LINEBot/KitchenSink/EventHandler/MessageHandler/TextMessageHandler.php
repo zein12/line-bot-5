@@ -67,7 +67,7 @@ class TextMessageHandler implements EventHandler
         $text = $this->textMessage->getText();
         $replyToken = $this->textMessage->getReplyToken();
         $this->logger->info("Got text message from $replyToken: $text");
-        $piktext = "กลัวเมีย";
+        $piktext = "olo";
         switch ($text) {
             case 'profile':
                 $userId = $this->textMessage->getUserId();
