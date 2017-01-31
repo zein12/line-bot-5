@@ -158,10 +158,8 @@ class TextMessageHandler implements EventHandler
                 break;
             default:
                 $userId = $this->textMessage->getUserId();
-                if($text == 'id'){
+                if($text == 'id') {
                     $this->echoBack($replyToken, $userId);
-                }else if($text == 'ปิ๊ก'){
-                    $this->echoBack($replyToken, 'กลัวเมีย');
                 }else{
                     $this->echoBack($replyToken, $text);
                 }
