@@ -130,7 +130,8 @@ class TextMessageHandler implements EventHandler
                 $this->bot->replyMessage($replyToken, $templateMessage);
                 break;
             case 'pik':
-                $this->sendProfile($replyToken, $piktext);
+                $userId = $this->textMessage->getUserId();
+                $this->sendProfile($replyToken, $userId);
                 break;
             case 'imagemap':
                 $richMessageUrl = UrlBuilder::buildUrl($this->req, ['static', 'rich']);
