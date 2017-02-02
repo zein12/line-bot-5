@@ -82,8 +82,5 @@ curl_setopt_array($curl, array(
     ),
 ));
 $result  = curl_exec($curl);
-curl_error($curl);
-
-
 curl_close($curl);
 echo $result;
