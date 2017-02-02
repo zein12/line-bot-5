@@ -11,6 +11,6 @@ $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('DqC0E6bwB9GJjUsZdCdyh
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => 'ec68c63b493064bedb0c8eccf7f328d6']);
 
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello');
-$response = $bot->pushMessage('<to>', $textMessageBuilder);
+$response = $bot->pushMessage('U90d4da92752f6e692797e75d993d0d6e', $textMessageBuilder);
 
 echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
