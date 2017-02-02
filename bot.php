@@ -70,6 +70,8 @@ curl_setopt_array($curl, array(
     CURLOPT_MAXREDIRS => 10,
     CURLOPT_TIMEOUT => 30,
     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_PROXY => 'velodrome.usefixie.com:80',
+    CURLOPT_PROXYUSERPWD => 'fixie:aoZ1UPc0f9WID8E',
     CURLOPT_CUSTOMREQUEST => "POST",
     CURLOPT_POSTFIELDS => "{\"to\":\"{U90d4da92752f6e692797e75d993d0d6e}\",\"messages\":[{\"type\": \"text\",\"text\": {$messageline}}]}",
     CURLOPT_HTTPHEADER => array(
