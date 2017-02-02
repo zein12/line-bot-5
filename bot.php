@@ -73,7 +73,7 @@ curl_setopt_array($curl, array(
     CURLOPT_CUSTOMREQUEST => "POST",
     CURLOPT_POSTFIELDS => "{\"to\":\"{U90d4da92752f6e692797e75d993d0d6e}\",\"messages\":[{\"type\": \"text\",\"text\": {$messageline}}]}",
     CURLOPT_HTTPHEADER => array(
-        "authorization: Bearer $access_token",
+        "authorization: Bearer DqC0E6bwB9GJjUsZdCdyhtC1b6KXlp/DXoBnzPbt1/v+z0p0FCzHk5XAbO9nm2HQL8AoawkXmbJmMabvXfKrdJeueUzpp27IKe8kDox3Y4U2hjOjsM2l32hIc47h7TrPHrhtfeRQyXLwALD3yP1EJAdB04t89/1O/w1cDnyilFU=",
         "cache-control: no-cache",
         "content-type: application/json",
         "postman-token: 92ca101e-dcc3-9f50-615d-76cffac0b616"
