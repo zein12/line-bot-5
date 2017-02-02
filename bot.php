@@ -59,12 +59,16 @@ use LINE\LINEBot\KitchenSink\Setting;
 
 require_once __DIR__ . 'vendor/autoload.php';
 
-$setting = Setting::getSetting();
-$app = new \Slim\App($setting);
+$access_token = 'DqC0E6bwB9GJjUsZdCdyhtC1b6KXlp/DXoBnzPbt1/v+z0p0FCzHk5XAbO9nm2HQL8AoawkXmbJmMabvXfKrdJeueUzpp27IKe8kDox3Y4U2hjOjsM2l32hIc47h7TrPHrhtfeRQyXLwALD3yP1EJAdB04t89/1O/w1cDnyilFU=';
+$secret = 'ec68c63b493064bedb0c8eccf7f328d6';
+$proxy = 'velodrome.usefixie.com:80';
+$proxyauth = 'fixie:aoZ1UPc0f9WID8E';
 
-(new Route())->register($app);
-(new Dependency())->register($app);
+$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
+$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $secret]);
 
-$app->run();
+$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello');
+$response = $bot->pushMessage('<to>', $textMessageBuilder);
 
+echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 ?>
