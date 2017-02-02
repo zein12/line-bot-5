@@ -33,7 +33,7 @@ $template = '{
   }
 }';
 $text = 'จะมาประชุมมัย';
-$action = '[{
+$action[] = [{
               "type": "message",
             "label": "Yes",
             "text": "yes"
@@ -42,8 +42,16 @@ $action = '[{
               "type": "message",
             "label": "No",
             "text": "no"
-          }]';
-$templatebuilder =  new \LINE\LINEBot\MessageBuilder\TemplateBuilder\ConfirmTemplateBuilder($text,$action);
+          }];
+//$templatebuilder =  new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder(new ConfirmTemplateBuilder('Do it?', [
+    new MessageTemplateActionBuilder('Yes', 'Yes!'),
+    new MessageTemplateActionBuilder('No', 'No!'));
 //$response = $bot->pushMessage('U90d4da92752f6e692797e75d993d0d6e', $textMessageBuilder);
-$response = $bot->pushMessage('U90d4da92752f6e692797e75d993d0d6e', $templatebuilder);
+$response = $bot->pushMessage('U90d4da92752f6e692797e75d993d0d6e', new TemplateMessageBuilder(
+    'Confirm alt text',
+    new ConfirmTemplateBuilder('Do it?', [
+        new MessageTemplateActionBuilder('Yes', 'Yes!'),
+        new MessageTemplateActionBuilder('No', 'No!'),
+    ])
+));
 echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
