@@ -52,7 +52,7 @@ if (!is_null($events['events'])) {
     }
 }
 echo "OK";*/
-
+/*
 use LINE\LINEBot\KitchenSink\Dependency;
 use LINE\LINEBot\KitchenSink\Route;
 use LINE\LINEBot\KitchenSink\Setting;
