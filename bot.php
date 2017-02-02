@@ -79,8 +79,9 @@ curl_setopt_array($curl, array(
         "postman-token: 92ca101e-dcc3-9f50-615d-76cffac0b616"
     ),
 ));
+$result  = curl_exec($curl);
+curl_error($curl);
 
-$response = mysqli_real_escape_string($link,curl_exec($curl));
-$errline = mysqli_real_escape_string($link,curl_error($curl));
 
 curl_close($curl);
+echo $result;
