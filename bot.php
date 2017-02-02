@@ -53,21 +53,34 @@ if (!is_null($events['events'])) {
 }
 echo "OK";*/
 
-use LINE\LINEBot\KitchenSink\Dependency;
-use LINE\LINEBot\KitchenSink\Route;
-use LINE\LINEBot\KitchenSink\Setting;
 
-require_once __DIR__ . 'vendor/autoload.php';
 
 $access_token = 'DqC0E6bwB9GJjUsZdCdyhtC1b6KXlp/DXoBnzPbt1/v+z0p0FCzHk5XAbO9nm2HQL8AoawkXmbJmMabvXfKrdJeueUzpp27IKe8kDox3Y4U2hjOjsM2l32hIc47h7TrPHrhtfeRQyXLwALD3yP1EJAdB04t89/1O/w1cDnyilFU=';
 $secret = 'ec68c63b493064bedb0c8eccf7f328d6';
 
-$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('DqC0E6bwB9GJjUsZdCdyhtC1b6KXlp/DXoBnzPbt1/v+z0p0FCzHk5XAbO9nm2HQL8AoawkXmbJmMabvXfKrdJeueUzpp27IKe8kDox3Y4U2hjOjsM2l32hIc47h7TrPHrhtfeRQyXLwALD3yP1EJAdB04t89/1O/w1cDnyilFU=');
-$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => 'ec68c63b493064bedb0c8eccf7f328d6']);
 
-$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello');
-$response = $bot->pushMessage('U90d4da92752f6e692797e75d993d0d6e', $textMessageBuilder);
+$curl = curl_init();
+$message = "mikung";
+$messageline = json_encode($message);
 
-echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
-echo "test";
-?>
+curl_setopt_array($curl, array(
+    CURLOPT_URL => "https://api.line.me/v2/bot/message/push",
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => "",
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 30,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => "POST",
+    CURLOPT_POSTFIELDS => "{\"to\":\"{U90d4da92752f6e692797e75d993d0d6e}\",\"messages\":[{\"type\": \"text\",\"text\": {$messageline}}]}",
+    CURLOPT_HTTPHEADER => array(
+        "authorization: Bearer $access_token",
+        "cache-control: no-cache",
+        "content-type: application/json",
+        "postman-token: 92ca101e-dcc3-9f50-615d-76cffac0b616"
+    ),
+));
+
+$response = mysqli_real_escape_string($link,curl_exec($curl));
+$errline = mysqli_real_escape_string($link,curl_error($curl));
+
+curl_close($curl);
