@@ -13,6 +13,6 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => 'ec68c63b493064bedb0c8
 
 $message = json_encode($action);
 //$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\ConfirmTemplateBuilder('data',$message);
-$imagemessage = new \LINE\LINEBot\MessageBuilder\ImagemapMessageBuilder('','');
+$imagemessage = new \LINE\LINEBot\MessageBuilder\ImagemapMessageBuilder('https://mikung-line.herokuapp.com/img/01.jpg','https://mikung-line.herokuapp.com/img/01.jpg');
 $response = $bot->pushMessage('U90d4da92752f6e692797e75d993d0d6e', $textMessageBuilder);
 echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
