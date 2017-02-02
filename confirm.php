@@ -11,11 +11,17 @@ $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('DqC0E6bwB9GJjUsZdCdyh
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => 'ec68c63b493064bedb0c8eccf7f328d6']);
 
 $text = 'จะมาประชุมมัย';
-$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder('นายมิคุง',
-        new ConfirmTemplateBuilder('Do it?', [
-            new MessageTemplateActionBuilder('Yes', 'Yes!'),
-            new MessageTemplateActionBuilder('No', 'No!'),
-        ])
-    );
+$action = '{
+            "type": "message",
+            "label": "Yes",
+            "text": "yes"
+          },
+          {
+            "type": "message",
+            "label": "No",
+            "text": "no"
+          }';
+$message = json_encode($action);
+$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\ConfirmTemplateBuilder('data',$message);
 $response = $bot->pushMessage('U90d4da92752f6e692797e75d993d0d6e', $textMessageBuilder);
 echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
