@@ -61,6 +61,7 @@ $secret = 'ec68c63b493064bedb0c8eccf7f328d6';
 
 $curl = curl_init();
 $message = "mikung";
+$chatid = "U90d4da92752f6e692797e75d993d0d6e";
 $messageline = json_encode($message);
 
 curl_setopt_array($curl, array(
@@ -73,7 +74,7 @@ curl_setopt_array($curl, array(
     CURLOPT_PROXY => 'velodrome.usefixie.com:80',
     CURLOPT_PROXYUSERPWD => 'fixie:aoZ1UPc0f9WID8E',
     CURLOPT_CUSTOMREQUEST => "POST",
-    CURLOPT_POSTFIELDS => "{\"to\":\"{U90d4da92752f6e692797e75d993d0d6e}\",\"messages\":[{\"type\": \"text\",\"text\": {$messageline}}]}",
+    CURLOPT_POSTFIELDS => "{\"to\":\"{$chatid}\",\"messages\":[{\"type\": \"text\",\"text\": {$messageline}}]}",
     CURLOPT_HTTPHEADER => array(
         "authorization: Bearer DqC0E6bwB9GJjUsZdCdyhtC1b6KXlp/DXoBnzPbt1/v+z0p0FCzHk5XAbO9nm2HQL8AoawkXmbJmMabvXfKrdJeueUzpp27IKe8kDox3Y4U2hjOjsM2l32hIc47h7TrPHrhtfeRQyXLwALD3yP1EJAdB04t89/1O/w1cDnyilFU=",
         "cache-control: no-cache",
